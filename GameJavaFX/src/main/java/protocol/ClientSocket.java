@@ -1,0 +1,60 @@
+package protocol;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+
+public class ClientSocket {
+    // поле, содержащее сокет-клиента
+    private Socket client;
+    private PrintWriter output;
+    private BufferedReader input;
+
+    // начало сессии - получаем ip-сервера и его порт
+    public void startConnection(String ip, int port) {
+        try {
+            // создаем подключение
+            client = new Socket(ip, port);
+            // получили выходной поток
+            output = new PrintWriter(client.getOutputStream(), true);
+            // входной поток
+            input = new BufferedReader(new InputStreamReader(client.getInputStream()));
+            // запустили слушателя сообщений
+            new Thread(receiverMessagesTask).start();
+        } catch (Exception e) {
+            throw new IllegalStateException(e);
+        }
+    }
+
+    public void sendMessage(String message) {
+        output.println(message);
+    }
+
+    private Runnable receiverMessagesTask = new Runnable() {
+        @Override
+        public void run() {
+            while (true) {
+                try {
+                    String response = input.readLine();
+                    if (response != null) {
+                        System.out.println(response);
+                    }
+                } catch (IOException e) {
+                    throw new IllegalStateException(e);
+                }
+            }
+        }
+    };
+
+    public void stopConnection() {
+        try {
+            input.close();
+            output.close();
+            client.close();
+        } catch (IOException e) {
+            throw new IllegalStateException(e);
+        }
+    }
+}
