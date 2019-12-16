@@ -1,6 +1,7 @@
 package components.application;
 
 import components.protocol.ClientSocket;
+import javafx.application.Platform;
 import javafx.scene.input.KeyCode;
 import models.GameObject;
 import javafx.application.Application;
@@ -50,7 +51,8 @@ public class Game extends Application {
             case "SetPlayer":
                 LinkedHashMap setPlayer = (LinkedHashMap) jsonMessage.getPayload();
                 GameObject p = new Player(Color.ORANGE);
-                players.put((Integer) setPlayer.get("playerId"), p);
+                System.out.println(setPlayer.get("id"));
+                players.put((Integer) setPlayer.get("id"), p);
                 addGameObject(p, 300, 300);
                 break;
             case "PlayerData":
@@ -83,10 +85,12 @@ public class Game extends Application {
     }
 
     private void addGameObject(GameObject object, double x, double y) {
-        object.getView().setTranslateX(x);
-        object.getView().setTranslateY(y);
+        Platform.runLater(() -> {
+            object.getView().setTranslateX(x);
+            object.getView().setTranslateY(y);
 
-        root.getChildren().add(object.getView());
+            root.getChildren().add(object.getView());
+        });
 
     }
 
