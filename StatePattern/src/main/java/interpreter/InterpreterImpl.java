@@ -25,7 +25,7 @@ public class InterpreterImpl implements Interpreter {
     private Integer copy(String id) {
         TaskContext taskContext = stateMachine.getTaskById(Integer.parseInt(id));
         if (taskContext != null) {
-            TaskContext newTask = taskContext.copy();
+            TaskContext newTask = (TaskContext) taskContext.copy();
             stateMachine.addTask(newTask);
             return newTask.getId();
         } else {

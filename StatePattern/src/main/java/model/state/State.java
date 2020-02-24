@@ -2,6 +2,7 @@ package model.state;
 
 import context.TaskContext;
 import model.Argument;
+import prototype.Prototype;
 
 public abstract class State {
     protected TaskContext task;

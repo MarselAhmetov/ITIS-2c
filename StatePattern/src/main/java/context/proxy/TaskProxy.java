@@ -21,7 +21,7 @@ public class TaskProxy implements TaskContext {
         this.repository = new LogFileRepository(new File("log.txt"));
     }
     private TaskProxy(TaskProxy taskProxy) {
-        this.taskContext = taskProxy.taskContext.copy();
+        this.taskContext = (TaskContext) taskProxy.taskContext.copy();
         this.repository = new LogFileRepository(new File("log.txt"));
     }
 

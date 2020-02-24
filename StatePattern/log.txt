@@ -133,3 +133,7 @@
 {"dateTime":"Mon Feb 24 17:42:38 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
 {"dateTime":"Mon Feb 24 17:42:42 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
 {"dateTime":"Mon Feb 24 17:43:00 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
+{"dateTime":"Mon Feb 24 17:53:39 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
+{"dateTime":"Mon Feb 24 17:53:39 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
+{"dateTime":"Mon Feb 24 17:53:39 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
+{"dateTime":"Mon Feb 24 17:53:45 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
