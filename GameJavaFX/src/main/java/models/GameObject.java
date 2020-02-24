@@ -18,6 +18,9 @@ public class GameObject {
         this.velocity = velocity;
     }
 
+    public void rotate(Integer value) {
+        view.setRotate(value);
+    }
     public Point2D getVelocity() {
         return velocity;
     }

@@ -17,14 +17,15 @@ public class JsonMessageService {
         }
     }
 
-    public JsonMessage decodeJson(String jsonMessage) {
+    public <T> T decodeJson(String jsonMessage, Class<T> c) {
         try {
-            return decodeJson0(jsonMessage);
+            return decodeJson0(jsonMessage, c);
         } catch (JsonProcessingException e) {
             System.out.println();
             throw new IllegalArgumentException(e);
         }
     }
+
 
     private String createJson0(String header, Object payload) throws JsonProcessingException {
         JsonMessage jsonMessage = new JsonMessage();
@@ -34,7 +35,8 @@ public class JsonMessageService {
         return mapper.writeValueAsString(jsonMessage);
     }
 
-    private JsonMessage decodeJson0(String jsonMessage) throws JsonProcessingException {
-        return mapper.readValue(jsonMessage, JsonMessage.class);
+    private <T> T decodeJson0(String jsonMessage, Class<T> c) throws JsonProcessingException {
+        return mapper.readValue(jsonMessage, c);
     }
+
 }

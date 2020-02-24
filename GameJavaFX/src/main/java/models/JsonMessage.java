@@ -1,6 +1,6 @@
 package models;
 
-public class JsonMessage {
+public class JsonMessage implements MessageJson{
     private String header;
     private Object payload;
 
