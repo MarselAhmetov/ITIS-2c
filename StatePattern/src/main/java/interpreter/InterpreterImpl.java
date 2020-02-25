@@ -15,7 +15,7 @@ public class InterpreterImpl implements Interpreter {
 
     @Override
     public void handle(String line) {
-        String[] command = line.split("-");
+        String[] command = line.split("  ");
         switch (command[0]) {
             case "copy":
                 System.out.println(copy(command[1]));
@@ -47,7 +47,7 @@ public class InterpreterImpl implements Interpreter {
         }
     }
 
-    //Language: up-taskId-developerId=1-testerId=2-text=text-error=error
+    //Language: up  taskId  developerId=1  testerId=2  text=text  error=error
     private void up(String[] command) {
         Argument argument = new Argument();
         for (int i = 2; i < command.length; i++) {
