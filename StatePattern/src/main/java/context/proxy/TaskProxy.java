@@ -16,8 +16,8 @@ public class TaskProxy implements TaskContext {
     private TaskContext taskContext;
     private Repository<Log> repository;
 
-    public TaskProxy(Integer developerId, Integer testerId, String text, String error) {
-        this.taskContext = new Task(developerId, testerId, text, error);
+    public TaskProxy(Argument argument) {
+        this.taskContext = new Task(argument.getDeveloperId(), argument.getTesterId(), argument.getText(), argument.getError());
         this.repository = new LogFileRepository(new File("log.txt"));
     }
     private TaskProxy(TaskProxy taskProxy) {

@@ -4,30 +4,29 @@ import context.TaskContext;
 import model.Argument;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class StateMachine {
-    private ArrayList<TaskContext> tasks;
+    private HashMap<Integer, TaskContext> tasks;
 
     public StateMachine() {
-        this.tasks = new ArrayList<>();
+        this.tasks = new HashMap<>();
     }
 
     public void addTask(TaskContext taskContext) {
-        tasks.add(taskContext);
+        tasks.put(taskContext.getId(), taskContext);
     }
 
     public void upAllTasks(Argument argument) {
-        for (TaskContext task : tasks) {
-            task.up(argument);
+        for (TaskContext value : tasks.values()) {
+             value.up(argument);
         }
     }
 
     public TaskContext getTaskById(Integer id) {
-        for (TaskContext task : tasks) {
-            if (task.getId() == id)
-                return task;
-        }
-        return null;
+        return tasks.get(id);
     }
 
 }
