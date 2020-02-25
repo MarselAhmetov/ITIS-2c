@@ -15,7 +15,7 @@ public class InterpreterImpl implements Interpreter {
 
     @Override
     public void handle(String line) {
-        String[] command = line.split(" ");
+        String[] command = line.split("-");
         switch (command[0]) {
             case "copy":
                 System.out.println(copy(command[1]));
@@ -26,8 +26,9 @@ public class InterpreterImpl implements Interpreter {
             case "down":
                 down(command);
                 break;
-            case "new_task":
+            case "new task":
                 newTask(command);
+                System.out.println(command[1]);
                 break;
             default:
                 System.out.println("No such command");
@@ -46,7 +47,7 @@ public class InterpreterImpl implements Interpreter {
         }
     }
 
-    // up taskId developerId=1 testerId=2 errorText=text
+    //Language: up-taskId-developerId=1-testerId=2-text=text-error=error
     private void up(String[] command) {
         Argument argument = new Argument();
         for (int i = 2; i < command.length; i++) {
@@ -66,7 +67,13 @@ public class InterpreterImpl implements Interpreter {
                     break;
             }
         }
-        stateMachine.getTaskById(Integer.parseInt(command[1])).up(argument);
+        TaskContext taskContext;
+        if ((taskContext = stateMachine.getTaskById(Integer.parseInt(command[1]))) != null) {
+            taskContext.up(argument);
+        } else {
+            System.out.println("No such task");
+        }
+
     }
 
     private void down(String[] command) {
@@ -92,7 +99,7 @@ public class InterpreterImpl implements Interpreter {
     }
 
     private void newTask(String[] command) {
-        Argument argument = Argument.builder().text(command[1]).build();
+        Argument argument = Argument.builder().text(command[0]).build();
         stateMachine.addTask(new TaskProxy(argument));
     }
 }

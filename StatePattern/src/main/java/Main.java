@@ -1,6 +1,7 @@
 import context.proxy.TaskProxy;
 import interpreter.Interpreter;
 import interpreter.InterpreterImpl;
+import model.Argument;
 import stateMachine.StateMachine;
 
 import java.util.Scanner;
@@ -8,10 +9,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         StateMachine stateMachine = new StateMachine();
-        stateMachine.addTask(new TaskProxy(null, null, null, null));
-        stateMachine.addTask(new TaskProxy(null, null, null, null));
-        stateMachine.addTask(new TaskProxy(null, null, null, null));
-        TaskProxy taskProxy = new TaskProxy(1, 1, null, null);
+        stateMachine.addTask(new TaskProxy(new Argument()));
+        stateMachine.addTask(new TaskProxy(new Argument()));
+        stateMachine.addTask(new TaskProxy(new Argument()));
+        TaskProxy taskProxy = new TaskProxy(new Argument());
         stateMachine.addTask(taskProxy.copy());
         stateMachine.addTask(taskProxy.copy());
         TaskProxy taskProxy1 = (TaskProxy) stateMachine.getTaskById(4).copy();

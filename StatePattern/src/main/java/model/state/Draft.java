@@ -14,6 +14,7 @@ public class Draft extends State {
     }
 
     public void up(Argument argument) {
+        System.out.println("Open" + argument.toString());
         task.changeState(new Open(task));
     }
 
