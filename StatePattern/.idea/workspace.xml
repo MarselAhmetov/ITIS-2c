@@ -57,6 +57,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -111,7 +112,9 @@
       <workItem from="1582645312238" duration="3593000" />
       <workItem from="1582649118440" duration="21000" />
       <workItem from="1582649182019" duration="1335000" />
-      <workItem from="1582663799036" duration="339000" />
+      <workItem from="1582663799036" duration="2295000" />
+      <workItem from="1582701433498" duration="341000" />
+      <workItem from="1582702254937" duration="2290000" />
     </task>
     <servers />
   </component>

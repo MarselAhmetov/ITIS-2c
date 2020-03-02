@@ -48,6 +48,9 @@ public class InterpreterImpl implements Interpreter {
     }
 
     //Language: up  taskId  developerId=1  testerId=2  text=text  error=error
+    //          down  taskId  developerId=1  testerId=2  text=text  error=error
+    //          new task  text
+    //          copy  taskId
     private void up(String[] command) {
         Argument argument = new Argument();
         for (int i = 2; i < command.length; i++) {
@@ -99,7 +102,7 @@ public class InterpreterImpl implements Interpreter {
     }
 
     private void newTask(String[] command) {
-        Argument argument = Argument.builder().text(command[0]).build();
+        Argument argument = Argument.builder().text(command[1]).build();
         stateMachine.addTask(new TaskProxy(argument));
     }
 }

@@ -173,3 +173,14 @@
 {"dateTime":"Tue Feb 25 20:08:01 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
 {"dateTime":"Tue Feb 25 20:08:02 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
 {"dateTime":"Tue Feb 25 20:08:02 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
+{"dateTime":"Tue Feb 25 23:51:48 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
+{"dateTime":"Tue Feb 25 23:51:49 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
+{"dateTime":"Tue Feb 25 23:51:49 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
+{"dateTime":"Tue Feb 25 23:52:03 MSK 2020","methodName":"up","className":"context.proxy.TaskProxy"}
+{"dateTime":"Tue Feb 25 23:52:20 MSK 2020","methodName":"up","className":"context.proxy.TaskProxy"}
+{"dateTime":"Tue Feb 25 23:52:57 MSK 2020","methodName":"up","className":"context.proxy.TaskProxy"}
+{"dateTime":"Wed Feb 26 00:29:15 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
+{"dateTime":"Wed Feb 26 00:29:15 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
+{"dateTime":"Wed Feb 26 00:29:15 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
+{"dateTime":"Wed Feb 26 00:29:56 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
+{"dateTime":"Wed Feb 26 00:30:03 MSK 2020","methodName":"copy","className":"context.proxy.TaskProxy"}
