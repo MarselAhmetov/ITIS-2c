@@ -1,0 +1,10 @@
+page1.html=Content text something 1  page2.html=Content text something 2  page3.html=Content text something 3  page4.html=Content text something 4  page5.html=Content text something 5  page6.html=Content text something 6  page7.html=Content text something 7  page8.html=Content text something 8  page9.html=Content text something 9
+page1.html:page2.html page3.html
+page2.html:page4.html page5.html
+page3.html:page5.html page6.html page7.html
+page4.html:
+page5.html:page1.html
+page6.html:
+page7.html:page1.html page8.html page9.html
+page8.html:
+page9.html:
