@@ -10,20 +10,16 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class PageReader {
-    private File file;
-    private FileReader fileReader;
     private Scanner scanner;
 
 
-    public PageReader() {
-        file = new File("src/pages.txt");
+    public PageReader(String path) {
         try {
-            fileReader = new FileReader(file);
+            scanner = new Scanner(new FileReader(new File(path)));
         } catch (FileNotFoundException e) {
             System.out.println();
             throw new IllegalArgumentException(e);
         }
-        scanner = new Scanner(fileReader);
     }
 
     public Map<String, Page> readPages() {
@@ -32,10 +28,10 @@ public class PageReader {
         for (String page : pages) {
             String[] param = page.split("=");
             pageMap.put(param[0], Page.builder()
-            .url(param[0])
-            .content(param[1])
+                    .url(param[0])
+                    .content(param[1])
                     .links(new HashMap<>())
-            .build());
+                    .build());
         }
         for (int i = 0; i < pages.length && scanner.hasNext(); i++) {
             String[] param = scanner.nextLine().split(":");
