@@ -1,19 +1,27 @@
-package model;
+package service;
 
 import lombok.*;
+import model.Page;
 
 import java.util.HashMap;
 import java.util.LinkedList;
 
-@Getter
-@Setter
-@NoArgsConstructor
+@Builder
 @AllArgsConstructor
-public abstract class Page {
+@NoArgsConstructor
+@Setter
+@Getter
+public class PageCommon extends Page {
     String url;
     String content;
     HashMap<String, Page> links;
     Integer currentPosition = 0;
+
+
+    @Override
+    public Page goToAd() {
+        return null;
+    }
 
     public boolean changePosition(Integer position) {
         if (position > 99 || position < 0) {
@@ -24,15 +32,12 @@ public abstract class Page {
         }
     }
 
-    public abstract Page goToAd();
-
     @Override
     public String toString() {
-        return "\n  Page{" + "\n" +
-                "       url='" + url + "'\n" +
-                "       content='" + content + "'\n" +
-                "       content='" + currentPosition + "'\n" +
-                "       links=" + new LinkedList<>(links.keySet()) +
-                '}' + "\n\n";
+        return "\n" + url + " {" + "\n" +
+                "  Content='" + content + "'\n" +
+                "  Position='" + currentPosition + "'\n" +
+                "  Links=" + new LinkedList<>(links.keySet()) +
+                "\n}" + "\n";
     }
 }

@@ -1,4 +1,4 @@
-package app;
+package service;
 
 import model.Page;
 
@@ -27,7 +27,7 @@ public class PageReader {
         String[] pages = scanner.nextLine().split("  ");
         for (String page : pages) {
             String[] param = page.split("=");
-            pageMap.put(param[0], Page.builder()
+            pageMap.put(param[0], PageCommon.builder()
                     .url(param[0])
                     .content(param[1])
                     .links(new HashMap<>())
