@@ -1,4 +1,4 @@
-package model;
+package model.page;
 
 import lombok.*;
 
@@ -28,11 +28,10 @@ public abstract class Page {
 
     @Override
     public String toString() {
-        return "\n  Page{" + "\n" +
-                "       url='" + url + "'\n" +
-                "       content='" + content + "'\n" +
-                "       content='" + currentPosition + "'\n" +
-                "       links=" + new LinkedList<>(links.keySet()) +
-                '}' + "\n\n";
+        return "\n" + url + " {" + "\n" +
+                "  Content='" + content + "'\n" +
+                "  Position='" + currentPosition + "'\n" +
+                "  Links=" + new LinkedList<>(links.keySet()) +
+                "\n}" + "\n";
     }
 }

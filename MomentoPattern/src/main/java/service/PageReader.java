@@ -1,6 +1,7 @@
 package service;
 
-import model.Page;
+import model.page.Page;
+import model.page.PageCommon;
 
 import java.io.File;
 import java.io.FileNotFoundException;

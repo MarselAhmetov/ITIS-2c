@@ -1,6 +1,6 @@
 package interpreter;
 
-import service.Browser;
+import model.Browser;
 
 public class InterpreterImpl implements Interpreter {
     Browser browser;
@@ -16,7 +16,7 @@ public class InterpreterImpl implements Interpreter {
                 browser.goToPosition(Integer.parseInt(param[1]));
                 break;
             case "goto":
-                browser.goTo(param[1]);
+                browser.goToPage(param[1]);
                 break;
             case "link":
                 browser.link(param[1]);

@@ -1,11 +1,11 @@
-package service;
+package model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import model.History;
-import model.Page;
+import model.page.Page;
+import model.page.PageCommon;
 import model.momento.Momento;
 
 import java.util.HashMap;
@@ -42,7 +42,7 @@ public class Browser {
     }
 
     public Momento createMomento() {
-        return new MomentoBrowser(this, currentPage, history);
+        return new MomentoBrowser(this, currentPage);
     }
 
     public void link(String url) {
@@ -54,7 +54,7 @@ public class Browser {
         System.out.println(showContent());
     }
 
-    public void goTo(String url) {
+    public void goToPage(String url) {
         Page page;
         if ((page = Internet.getPage(url)) != null) {
             currentPage = page;
@@ -93,9 +93,7 @@ public class Browser {
     public class MomentoBrowser implements Momento {
 
         private Browser browser;
-
         private Page momentoStage;
-        private History history;
 
 
         public void recover() {

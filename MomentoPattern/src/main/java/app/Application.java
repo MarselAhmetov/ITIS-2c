@@ -1,10 +1,9 @@
 package app;
 
 import interpreter.InterpreterImpl;
-import service.Browser;
-import service.Context;
-import service.Internet;
-import service.PageReader;
+import model.Browser;
+import context.Context;
+import model.Internet;
 
 import java.util.Scanner;
 

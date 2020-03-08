@@ -1,5 +1,4 @@
-package model;
-
+package model.ads;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class VideoAd {
-    boolean isWatched;
-    String adUrl;
+public class TextAd {
+    private String adUrl;
 }

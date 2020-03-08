@@ -1,6 +1,7 @@
-package service;
+package model;
 
-import model.Page;
+import model.page.Page;
+import service.PageReader;
 
 import java.util.Map;
 
@@ -12,7 +13,6 @@ public class Internet {
         PageReader pageReader = new PageReader("src/pages.txt");
         pages = pageReader.readPages();
     }
-
 
     public static Page getPage(String url) {
         Page page;

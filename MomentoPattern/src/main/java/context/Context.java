@@ -1,4 +1,6 @@
-package service;
+package context;
+
+import model.Browser;
 
 public class Context {
     private static Browser browser;
