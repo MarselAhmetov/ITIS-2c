@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class VideoAd {
+public class VideoAd implements Ad {
     private boolean isWatched;
     private String adUrl;
 }

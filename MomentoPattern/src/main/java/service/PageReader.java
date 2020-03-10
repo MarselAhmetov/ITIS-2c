@@ -1,5 +1,8 @@
 package service;
 
+import factory.AdFactory;
+import factory.TextAdFactory;
+import factory.VideoAdFactory;
 import model.ads.TextAd;
 import model.ads.VideoAd;
 import model.page.*;
@@ -13,6 +16,7 @@ import java.util.Scanner;
 
 public class PageReader {
     private Scanner scanner;
+    private AdFactory factory;
 
 
     public PageReader(String path) {
@@ -75,20 +79,17 @@ public class PageReader {
             String[] ads = param[2].split(" ");
             switch (param[0]) {
                 case "VideoAd":
+                    factory = VideoAdFactory.getInstance();
                     for (String ad : ads) {
                         String[] adPage = ad.split("=");
-                        ((PageVideoAd) pageMap.get(param[1])).getAds().put(Integer.parseInt(adPage[1]), VideoAd.builder()
-                                .adUrl(adPage[0])
-                                .isWatched(false)
-                                .build());
+                        ((PageVideoAd) pageMap.get(param[1])).getAds().put(Integer.parseInt(adPage[1]), (VideoAd) factory.createAd(adPage[0]));
                     }
                     break;
                 case "TextAd":
+                    factory = TextAdFactory.getInstance();
                     for (String ad : ads) {
                         String[] adPage = ad.split("=");
-                        ((PageTextAd) pageMap.get(param[1])).getAds().put(Integer.parseInt(adPage[1]), TextAd.builder()
-                                .adUrl(adPage[0])
-                                .build());
+                        ((PageTextAd) pageMap.get(param[1])).getAds().put(Integer.parseInt(adPage[1]), (TextAd) factory.createAd(adPage[0]));
                     }
                     break;
             }

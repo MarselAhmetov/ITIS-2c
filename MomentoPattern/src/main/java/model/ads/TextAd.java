@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TextAd {
+public class TextAd implements Ad {
     private String adUrl;
 }
