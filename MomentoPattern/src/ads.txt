@@ -1,0 +1,6 @@
+VideoAd:page1.html:AdPage1.html=12 AdPage2.html=25 AdPage3.html=78
+VideoAd:page2.html:AdPage4.html=14
+TextAd:page6.html:AdPage1.html=19 AdPage6.html=35
+VideoAd:page7.html:AdPage1.html=22 AdPage2.html=45 AdPage3.html=78
+TextAd:page8.html:AdPage1.html=39
+TextAd:page9.html:AdPage1.html=68 AdPage2.html=80

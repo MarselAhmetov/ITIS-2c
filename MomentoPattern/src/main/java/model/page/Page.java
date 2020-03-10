@@ -10,10 +10,10 @@ import java.util.LinkedList;
 @NoArgsConstructor
 @AllArgsConstructor
 public abstract class Page {
-    String url;
-    String content;
-    HashMap<String, Page> links;
-    Integer currentPosition = 0;
+    private String url;
+    private String content;
+    private HashMap<String, Page> links;
+    private Integer currentPosition = 0;
 
     public boolean changePosition(Integer position) {
         if (position > 99 || position < 0) {

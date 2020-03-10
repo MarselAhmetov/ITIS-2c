@@ -17,6 +17,8 @@ public class History {
         if (!backStack.isEmpty()) {
             forwardStack.add(momento);
             backStack.pop().recover();
+        } else {
+            System.out.println("Empty");
         }
     }
 
@@ -24,6 +26,8 @@ public class History {
         if (!forwardStack.isEmpty()) {
             backStack.add(momento);
             forwardStack.pop().recover();
+        } else {
+            System.out.println("Empty");
         }
     }
 

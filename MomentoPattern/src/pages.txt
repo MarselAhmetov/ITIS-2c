@@ -1,4 +1,19 @@
-page1.html=Content text something 1  page2.html=Content text something 2  page3.html=Content text something 3  page4.html=Content text something 4  page5.html=Content text something 5  page6.html=Content text something 6  page7.html=Content text something 7  page8.html=Content text something 8  page9.html=Content text something 9
+15
+VideoAd=page1.html=Content text something 1
+VideoAd=page2.html=Content text something 2
+Common=page3.html=Content text something 3
+Common=page4.html=Content text something 4
+Common=page5.html=Content text something 5
+TextAd=page6.html=Content text something 6
+VideoAd=page7.html=Content text something 7
+TextAd=page8.html=Content text something 8
+TextAd=page9.html=Content text something 9
+Common=AdPage1.html=Ad content 1
+Common=AdPage2.html=Ad content 2
+Common=AdPage3.html=Ad content 3
+Common=AdPage4.html=Ad content 4
+Common=AdPage5.html=Ad content 5
+Common=AdPage6.html=Ad content 6
 page1.html:page2.html page3.html
 page2.html:page4.html page5.html
 page3.html:page5.html page6.html page7.html
@@ -8,3 +23,9 @@ page6.html:
 page7.html:page1.html page8.html page9.html
 page8.html:
 page9.html:
+AdPage1.html:
+AdPage2.html:
+AdPage3.html:
+AdPage4.html:
+AdPage5.html:
+AdPage6.html:

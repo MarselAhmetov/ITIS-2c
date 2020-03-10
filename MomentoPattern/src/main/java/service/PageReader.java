@@ -1,7 +1,8 @@
 package service;
 
-import model.page.Page;
-import model.page.PageCommon;
+import model.ads.TextAd;
+import model.ads.VideoAd;
+import model.page.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -24,23 +25,72 @@ public class PageReader {
     }
 
     public Map<String, Page> readPages() {
+        Integer countOfPage = scanner.nextInt();
         Map<String, Page> pageMap = new HashMap<>();
-        String[] pages = scanner.nextLine().split("  ");
-        for (String page : pages) {
-            String[] param = page.split("=");
-            pageMap.put(param[0], PageCommon.builder()
-                    .url(param[0])
-                    .content(param[1])
+        for (int i = 0; i < countOfPage; i++) {
+            String[] param = scanner.nextLine().split("=");
+            switch (param[0]) {
+                case "Common":
+                    pageMap.put(param[1], PageCommon.builder()
+                    .url(param[1])
+                    .content(param[2])
                     .links(new HashMap<>())
                     .build());
+                    break;
+                case "TextAd":
+                    pageMap.put(param[1], PageTextAd.builder()
+                            .url(param[1])
+                            .content(param[2])
+                            .links(new HashMap<>())
+                            .ads(new HashMap<>())
+                            .build());
+                    break;
+                case "VideoAd":
+                    pageMap.put(param[1], PageVideoAd.builder()
+                            .url(param[1])
+                            .content(param[2])
+                            .links(new HashMap<>())
+                            .ads(new HashMap<>())
+                            .build());
+                    break;
+            }
         }
-        for (int i = 0; i < pages.length && scanner.hasNext(); i++) {
+        for (int i = 0; i < countOfPage && scanner.hasNext(); i++) {
             String[] param = scanner.nextLine().split(":");
             if (param.length > 1) {
                 String[] links = param[1].split(" ");
                 for (String link : links) {
                     pageMap.get(param[0]).getLinks().put(link, pageMap.get(link));
                 }
+            }
+        }
+        try {
+            scanner = new Scanner(new FileReader(new File("src/ads.txt")));
+        } catch (FileNotFoundException e) {
+            System.out.println();
+            throw new IllegalArgumentException(e);
+        }
+        while (scanner.hasNext()) {
+            String[] param = scanner.nextLine().split(":");
+            String[] ads = param[2].split(" ");
+            switch (param[0]) {
+                case "VideoAd":
+                    for (String ad : ads) {
+                        String[] adPage = ad.split("=");
+                        ((PageVideoAd) pageMap.get(param[1])).getAds().put(Integer.parseInt(adPage[1]), VideoAd.builder()
+                                .adUrl(adPage[0])
+                                .isWatched(false)
+                                .build());
+                    }
+                    break;
+                case "TextAd":
+                    for (String ad : ads) {
+                        String[] adPage = ad.split("=");
+                        ((PageTextAd) pageMap.get(param[1])).getAds().put(Integer.parseInt(adPage[1]), TextAd.builder()
+                                .adUrl(adPage[0])
+                                .build());
+                    }
+                    break;
             }
         }
         return pageMap;

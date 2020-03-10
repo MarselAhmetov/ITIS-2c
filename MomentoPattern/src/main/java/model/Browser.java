@@ -66,8 +66,8 @@ public class Browser {
     public void goToAd() {
         Page page;
         if ((page = currentPage.goToAd()) != null) {
-            currentPage = page;
             history.link(createMomento());
+            currentPage = page;
             System.out.println(showContent());
         } else {
             System.out.println("No any ads on this position");
@@ -75,9 +75,8 @@ public class Browser {
     }
 
     public void goToAd(String url) {
-        currentPage = Internet.getPage(url);
         history.link(createMomento());
-        System.out.println(showContent());
+        currentPage = Internet.getPage(url);
     }
 
     public void goToPosition(Integer position) {

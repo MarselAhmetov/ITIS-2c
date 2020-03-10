@@ -3,6 +3,7 @@ package model.page;
 import lombok.*;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 
 @Builder
 @AllArgsConstructor
@@ -19,6 +20,15 @@ public class PageCommon extends Page {
     @Override
     public Page goToAd() {
         return null;
+    }
+
+    @Override
+    public String toString() {
+        return "\n" + url + " {" + "\n" +
+                "  Content='" + content + "'\n" +
+                "  Position='" + currentPosition + "'\n" +
+                "  Links=" + new LinkedList<>(links.keySet()) +
+                "\n}" + "\n";
     }
 
 }
